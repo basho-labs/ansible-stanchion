@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: James Martin
-  description:
+  description: Manages requests for globally unique system entities in a Riak CS cluster. 
   company: Basho
   license: Apache
   min_ansible_version: 1.4
