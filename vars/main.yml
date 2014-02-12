@@ -1,0 +1,2 @@
+---
+stanchion_ip_addr: "{{ hostvars[inventory_hostname]['ansible_' + stanchion_iface]['ipv4']['address'] }}"

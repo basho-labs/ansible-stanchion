@@ -1,0 +1,1 @@
+stanchion_package: stanchion={{ stanchion_version }}-{{ stanchion_package_release }}

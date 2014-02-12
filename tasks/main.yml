@@ -1,0 +1,43 @@
+---
+
+# Load specified credentials for riakcs, if not revert to default
+- include: reset_creds.yml
+  when: stanchion_reset_creds == True
+  tags: creds
+
+- name: including vars
+  include_vars: "{{ item }}"
+  with_first_found:
+   - "{{ riakcs_creds_path }}"
+   - "default_creds.yml"
+  tags:
+  - creds
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+# CentOS specific package installations
+- include: RedHat.yml
+  when: ansible_os_family  == "RedHat"
+
+# Ubuntu specific package installations
+- include: Debian.yml
+  when: ansible_os_family  == "Debian"
+
+- name: configure ulimit for stanchion user
+  copy: src=etc_security_limits.d_stanchion.conf dest=/etc/security/limits.d/stanchion.conf
+
+- name: configure /etc/stanchion/app.config
+  template: src=etc_stanchion_app.config.j2 dest=/etc/stanchion/app.config
+  tags:
+  - config
+  - creds
+  notify: restart stanchion
+
+- name: configure vm.args
+  template: src=etc_stanchion_vm.args.j2 dest=/etc/stanchion/vm.args
+  tags: configfiles
+  notify: restart stanchion
+
+- name: start stanchion
+  service: name=stanchion state=started enabled=yes

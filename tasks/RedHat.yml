@@ -1,0 +1,6 @@
+---
+- name: install stanchion
+  yum: name={{ item }} state=present
+  with_items:
+  - "{{ stanchion_package }}"
+  - python-httplib2

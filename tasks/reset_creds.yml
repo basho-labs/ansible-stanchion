@@ -1,0 +1,12 @@
+- name: request new credentials
+  uri: > 
+    url="http://{{ riakcs_creds_reset_ip }}/riak-cs/user"
+    status_code=201 HEADER_Content-Type="application/json" 
+    method=POST 
+    body='{"email":"{{ riakcs_admin.email }}", "name":"{{ riakcs_admin.name }}"}'
+  register: creds
+  tags: creds
+
+- name: write new credentials to credentials file
+  local_action: template src=creds.yml.j2 dest={{ riakcs_creds_path }}
+  sudo: false
