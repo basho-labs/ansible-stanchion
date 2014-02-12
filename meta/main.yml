@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: James Martin
+  author: James Martin <jmartin@basho.com>
   description: Manages requests for globally unique system entities in a Riak CS cluster. 
   company: Basho
   license: Apache
