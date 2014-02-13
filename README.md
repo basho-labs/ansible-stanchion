@@ -6,12 +6,12 @@ This role will setup the Stanchion component of Riak CS cluster on a node. It wi
 Requirements
 ------------
 
-None
+Tested with Stanchion 1.4.3 on CentOS 6 and Ubuntu Precise.
 
 Role Variables
 --------------
 
-The following variables are available
+If you have trouble seeing the tables below, please [read the documentation on Github](https://github.com/basho/ansible-stanchion/blob/master/README.md).
 
 Variables listed with "OS Specific" and "Install specific" have values defined in `vars/<ansible_os_family>.yml`.
 
