@@ -1,6 +1,6 @@
 ---
 riakcs_admin: 
-  user: admin 
+  name: admin 
   email: admin@admin.com
 riakcs_admin_creds: 
   key: foo 
