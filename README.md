@@ -57,7 +57,8 @@ License
 
 Apache
 
-Author Information
+Maintainer Information
 ------------------
 
-jmartin@baso.com
+- James Martin (<jmartin@basho.com>)
+- Hector Castro (<hector@basho.com>)
