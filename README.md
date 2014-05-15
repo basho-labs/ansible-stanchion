@@ -20,7 +20,7 @@ Variables listed with "OS Specific" and "Install specific" have values defined i
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| riakcs_admin.user | admin      | default Riak CS admin user name    |
+| riakcs_admin.name | admin      | default Riak CS admin user name    |
 | riakcs_admin.email | admin@admin.com | default email address for Riak CS admin user |
 | riakcs_admin_creds.key | foo      | default admin access key    |
 | riakcs_admin_creds.secret | bar | default admin secret key |
@@ -57,7 +57,8 @@ License
 
 Apache
 
-Author Information
+Maintainer Information
 ------------------
 
-jmartin@baso.com
+- James Martin (<jmartin@basho.com>)
+- Hector Castro (<hector@basho.com>)

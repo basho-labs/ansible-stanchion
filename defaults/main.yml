@@ -1,10 +1,10 @@
 ---
-riakcs_admin: 
-  user: admin 
+riakcs_admin:
+  name: admin
   email: admin@admin.com
-riakcs_admin_creds: 
-  key: foo 
-  secret: bar 
+riakcs_admin_creds:
+  key: foo
+  secret: bar
 riakcs_creds_path: /tmp/riakcs_creds.yml
 riakcs_creds_reset_ip: 127.0.0.1:8080
 stanchion_auth_bypass: 'false'
