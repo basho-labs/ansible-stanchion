@@ -32,6 +32,7 @@ Variables listed with "OS Specific" and "Install specific" have values defined i
 | stanchion_ip_addr| {{ hostvars[inventory_hostname]['ansible_' + stanchion_iface]['ipv4']['address'] }}"             |  shortcut for the ip address associated with stanchion_iface |
 | stanchion_node_name | stanchion@{{ stanchion_ip_addr }} | node name for stanchion node |
 | stanchion_port   | 8085| port which stanchion listens.|
+| stanchion_custom_package| no | specify a path on the Ansible control, or HTTP URL, to a custom Stanchion package.|
 |stanchion_package_release| 1| release of Stanchion package|
 | stanchion_reset_creds| no             | Tell stanchion to obtain new credentials|
 | stanchion_riak_ip | 127.0.0.1 | IP address of a Riak Node |

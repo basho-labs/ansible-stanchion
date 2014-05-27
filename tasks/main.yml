@@ -16,6 +16,18 @@
 - name: Add the OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: copy custom stanchion package
+  copy: src={{ stanchion_custom_package }} dest=/tmp
+  when: stanchion_custom_package != False and stanchion_custom_package.find('http') == -1
+
+- name: copy custom stanchion package from remote
+  action: get_url url={{ stanchion_custom_package }} dest=/tmp/
+  when: stanchion_custom_package != False and stanchion_custom_package.find('http') != -1
+
+- name: set stanchion packagename
+  set_fact: stanchion_package=/tmp/{{ stanchion_custom_package|basename }} state=present
+  when: stanchion_custom_package != False
+
 # CentOS specific package installations
 - include: RedHat.yml
   when: ansible_os_family  == "RedHat"
