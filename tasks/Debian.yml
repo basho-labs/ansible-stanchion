@@ -1,6 +1,13 @@
 ---
 - name: install stanchion
-  apt: pkg={{ item }}
-  with_items:
-  - "{{ stanchion_package }}"
-  - python-httplib2
+  apt: name={{ stanchion_package }} state=present
+  when: stanchion_custom_package == False
+
+- name: install stanchion custom
+  command: dpkg --skip-same-version -i {{ stanchion_package }}
+  register: dpkg_result
+  changed_when: dpkg_result.stdout.startswith('Selecting')
+  when: stanchion_custom_package != False
+
+- name: install python-httplib2
+  apt: name=python-httplib2 state=present
