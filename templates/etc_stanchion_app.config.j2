@@ -1,28 +1,26 @@
-#jinja2:variable_start_string:'(<' , variable_end_string:'>)'
-
 [
  %% Stanchion config
  {stanchion, [
-                   {stanchion_ip, "(< stanchion_bind_ip >)"},
-                   {stanchion_port, (< stanchion_port >) } ,
+                   {stanchion_ip, "{{ stanchion_bind_ip }}"},
+                   {stanchion_port, {{ stanchion_port }} } ,
 
                    %%{ssl, [
                    %%       {certfile, "./etc/cert.pem"},
                    %%       {keyfile, "./etc/key.pem"}
                    %%      ]},
 
-                   {auth_bypass, (< stanchion_auth_bypass >) } ,
+                   {auth_bypass, {{ stanchion_auth_bypass }} } ,
 
 
                    %% Riak connection details
-                   {riak_ip, "(< stanchion_riak_ip >)"},
-                   {riak_pb_port, (< stanchion_riak_port >) },
+                   {riak_ip, "{{ stanchion_riak_ip }}"},
+                   {riak_pb_port, {{ stanchion_riak_port }} },
 
                    %% Admin user credentials
 
 
-                   {admin_key, "(< riakcs_admin_creds.key >)"},
-                   {admin_secret, "(< riakcs_admin_creds.secret >)"}
+                   {admin_key, "{{ riakcs_admin_creds.key }}"},
+                   {admin_secret, "{{ riakcs_admin_creds.secret }}"}
                   ]},
 
  {lager, [
