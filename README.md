@@ -61,5 +61,5 @@ Apache
 Maintainer Information
 ------------------
 
-- James Martin (<jmartin@basho.com>)
+- Bryan Hunt (<bhunt@basho.com>)
 - Hector Castro (<hector@basho.com>)
